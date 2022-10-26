@@ -1,0 +1,19 @@
+
+<div id="note" >
+
+    <mat-expansion-panel id="add-fruit-panel">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <h3>New Notes</h3>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <!-- <app-add-fruit (fruitAdded)="onFruitAdded($event)"></app-add-fruit> -->
+        <app-add-note ></app-add-note>
+
+    </mat-expansion-panel>
+
+
+</div>
+
+<app-search (searchTextChanged)="search($event)"></app-search>
+<app-note  *ngFor="let contact of notes" [contact] = "contact" ></app-note>

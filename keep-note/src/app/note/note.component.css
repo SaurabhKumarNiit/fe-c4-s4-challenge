@@ -1,0 +1,9 @@
+
+#main{
+    width: 250px;
+    display: inline-flex;
+    margin-top: 80px;
+}
+a{
+    text-decoration: none;
+}

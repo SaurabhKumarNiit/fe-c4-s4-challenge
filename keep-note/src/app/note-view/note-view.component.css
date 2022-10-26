@@ -1,0 +1,18 @@
+/* #note{
+     border: 3px solid lightblue; 
+    width: 200px;
+    height: 200px; 
+    position:absolute;
+    top: 150px;
+    right:500px;   
+    text-align: center;
+     box-shadow: 4px 4px lightblue; 
+    border-radius: 20px;
+} */
+#note{
+    
+    width: 350px;
+    height: 470px; 
+    margin-left: 600px;
+    border-radius: 20px;
+}

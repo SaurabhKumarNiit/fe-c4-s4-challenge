@@ -1,0 +1,68 @@
+<h2 id="addnote"></h2>
+<form>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <!-- <mat-label>Title</mat-label>
+          <input name="name" matInput placeholder="start here..."  [(ngModel)]="note.title"> -->
+
+
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Type Here" name="title" [(ngModel)]="note.title" required #title="ngModel"
+        [class.is-invalid]="title.invalid && title.touched">
+
+      <small *ngIf="title.touched && title.invalid" class="text-danger">note title is required</small>
+
+    </mat-form-field>
+
+
+
+    <mat-form-field class="example-full-width">
+
+      <mat-label>Content</mat-label>
+      <input matInput placeholder="Type Here" name="content" [(ngModel)]="note.content" minlength="5" required
+        #content="ngModel" [class.is-invalid]="content.invalid && content.touched">
+
+      <div *ngIf="content.errors?.['minlength']; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock><small class="text-danger">note content minimum length is 5.</small></ng-template>
+      <ng-template #elseBlock><small *ngIf="content.touched && content.invalid" class="text-danger">note content is
+          required</small></ng-template>
+
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Reminder Date</mat-label>
+      <input type="date" name="reminderDate" matInput placeholder="start here..." [(ngModel)]="note.reminderDate"
+        required #reminderDate="ngModel" [class.is-invalid]="reminderDate.invalid && reminderDate.touched">
+      <small *ngIf="reminderDate.touched && reminderDate.invalid" class="text-danger">Reminder Date is required</small>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Add Category</mat-label>
+      <input name="category" matInput placeholder="start here..." [(ngModel)]="note.category">
+    </mat-form-field>
+
+
+    <br>
+    <strong>Priority</strong>
+    <br><br>
+    <mat-radio-group aria-label="Select an option" name="priority" [(ngModel)]="note.priority">
+      <mat-radio-button value="Low">Low</mat-radio-button>
+      <mat-radio-button value="Medium">Medium</mat-radio-button>
+      <mat-radio-button value="High">High</mat-radio-button>
+      <mat-radio-button value="Critical">Critical</mat-radio-button>
+    </mat-radio-group>
+    <br><br>
+    <span>
+      <mat-icon>today</mat-icon>
+    </span>
+
+
+  </form>
+
+  <div id="save">
+    <button mat-icon-button mat-raised-button class="bg-primary">
+      <mat-icon class="text-white" fontIcon="add-circle" color="primary" (click)="saveNotes()"></mat-icon>
+    </button>
+  </div>
+  <!-- <button (click)="saveNotes()">Save</button> -->
+</form>
